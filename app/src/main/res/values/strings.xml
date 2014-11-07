@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AppNotas</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="lblmen1">Quinces</string>
+    <string name="lblmen2">Exposiciones</string>
+    <string name="lblmen3">Practica</string>
+    <string name="lblmen4">Proyecto</string>
+    <string name="txtNota1"></string>
+    <string name="txtNota2"></string>
+    <string name="txtNota3"></string>
+    <string name="txtNota4"></string>
+    <string name="btnCalcular">Calcular</string>
+    <string name="lblresultado">Su Resultado es:</string>
+    <string name="title_activity_configuracion">Configuracion</string>
+    <string name="btnGuardar">Guardar</string>
+    <string name="lblcammen1">Cambiar Nota Quinces</string>
+    <string name="lblcammen2">Cambiar Nota Exposiciones</string>
+    <string name="lblcammen3">Cambiar Nota Practica</string>
+    <string name="lblcammen4">Cambiar Nota Proyecto</string>
+    <string name="txtCamNota1" />
+    <string name="txtcamNota2" />
+    <string name="txtcamNota3" />
+    <string name="txtcamNota4" />
+    <string name="lblresultado1" />
+    <string name="lblmendigi">Ingresar Porcentajes Enteros</string>
+
+</resources>
