@@ -26,5 +26,6 @@
     <string name="txtcamNota4" />
     <string name="lblresultado1" />
     <string name="lblmendigi">Ingresar Porcentajes Enteros</string>
+    <string name="ok">ok </string>/>
 
 </resources>

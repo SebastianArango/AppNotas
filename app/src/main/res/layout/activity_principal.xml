@@ -6,6 +6,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#000000"
     tools:context=".Principal">
 
 
@@ -22,6 +23,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/lblmen1"
+            android:textColor="#01A9DB"
             android:id="@+id/lblmen1" />
 
         <EditText
@@ -29,6 +31,7 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:ems="3"
+            android:background="#FFFFFF"
             android:id="@+id/txtNota1"
             android:text="@string/txtNota1" />
 
@@ -37,6 +40,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/lblmen2"
+            android:textColor="#01A9DB"
             android:id="@+id/lblmen2" />
 
         <EditText
@@ -44,6 +48,7 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:ems="3"
+            android:background="#FFFFFF"
             android:id="@+id/txtNota2"
             android:text="@string/txtNota2" />
 
@@ -52,6 +57,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/lblmen3"
+            android:textColor="#01A9DB"
             android:id="@+id/lblmen3" />
 
         <EditText
@@ -59,6 +65,7 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:ems="3"
+            android:background="#FFFFFF"
             android:id="@+id/txtNota3"
             android:text="@string/txtNota3" />
 
@@ -67,6 +74,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/lblmen4"
+            android:textColor="#01A9DB"
             android:id="@+id/lblmen4" />
 
         <EditText
@@ -74,6 +82,7 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:ems="3"
+            android:background="#FFFFFF"
             android:id="@+id/txtNota4"
             android:text="@string/txtNota4" />
 
@@ -81,6 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btnCalcular"
+            android:textColor="#FFFFFF"
             android:id="@+id/btnCalcular" />
 
         <TextView
@@ -88,6 +98,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/lblresultado1"
+            android:textColor="#01A9DB"
             android:id="@+id/lblresultado" />
     </LinearLayout>
 </RelativeLayout>

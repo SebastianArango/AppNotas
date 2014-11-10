@@ -6,4 +6,9 @@
         android:orderInCategory="100"
         android:showAsAction="never" />
 
+    <item android:id="@+id/ver_alertdialog"
+        android:title="Acerca de"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
 </menu>
