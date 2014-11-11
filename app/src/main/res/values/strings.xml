@@ -25,9 +25,10 @@
     <string name="txtcamNota3"></string>
     <string name="txtcamNota4"></string>
     <string name="lblresultado1"></string>
-    <string name="lblmendigi">Ingresar Porcentajes </string>
+    <string name="lblmendigi">Ingresar Porcentajes en Valores Enteros</string>
     <string name="ok">ok </string>
     <string name="btnlimpiar">Limpiar</string>
 />    <string name="title_activity_lista_calcular">ListaCalcular</string>
+    <string name="btnrecalcu">Recalcular</string>
 
 </resources>

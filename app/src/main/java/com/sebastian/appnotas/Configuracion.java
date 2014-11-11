@@ -14,7 +14,7 @@ import model.Config;
 
 
 public class Configuracion extends Activity {
-
+    int n1,n2,n3,n4;
     Principal principal = new Principal();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +27,16 @@ public class Configuracion extends Activity {
         final EditText camnot4 = (EditText) findViewById(R.id.txtcamNota4);
 
 
-        camnot1.setText(Double.toString(Config.getInstance().getQuiz()));
-        camnot2.setText(Double.toString(Config.getInstance().getExposicion()));
-        camnot3.setText(Double.toString(Config.getInstance().getPractica()));
-        camnot4.setText(Double.toString(Config.getInstance().getProject()));
+
+        n1=(int)(Config.getInstance().getQuiz()*100);
+        n2=(int)(Config.getInstance().getExposicion()*100);
+        n3=(int)(Config.getInstance().getPractica()*100);
+        n4=(int)(Config.getInstance().getProject()*100);
+
+        camnot1.setText(String.valueOf(n1));
+        camnot2.setText(String.valueOf(n2));
+        camnot3.setText(String.valueOf(n3));
+        camnot4.setText(String.valueOf(n4));
 
 
         final Button guardar = (Button) findViewById(R.id.btnGuardar);
@@ -38,25 +44,30 @@ public class Configuracion extends Activity {
        guardar.setOnClickListener(new View.OnClickListener() {
             @Override
           public void onClick(View view) {
-                Config.getInstance().setQuiz((Double.parseDouble(camnot1.getText().toString())));
-                Config.getInstance().setExposicion((Double.parseDouble(camnot2.getText().toString())));
-                Config.getInstance().setPractica((Double.parseDouble(camnot3.getText().toString())));
-                Config.getInstance().setProject((Double.parseDouble(camnot4.getText().toString())));
+
 
                 if (Double.parseDouble(camnot1.getText().toString())+
                     Double.parseDouble(camnot2.getText().toString()) +
                     Double.parseDouble(camnot3.getText().toString())+
-                    Double.parseDouble(camnot4.getText().toString())==1){
+                    Double.parseDouble(camnot4.getText().toString())==100){
 
-                    Toast.makeText(Configuracion.this, "Porcentaje Actual de las notas" +
-                            "\nQuiz:"+camnot1.getText()+"\nExposionones"+camnot2.getText()+"\nPractica"+
-                            camnot3.getText()+"\nProyecto"+camnot4.getText(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(Configuracion.this, "Porcentaje Equivalente de las notas" +
+                            "\nQuiz:"+camnot1.getText()+"%"+"\nExposionones"+camnot2.getText()+"%"+"\nPractica"+
+                            camnot3.getText()+"%"+"\nProyecto"+camnot4.getText()+"%", Toast.LENGTH_LONG).show();
+
+
+
+                    Config.getInstance().setQuiz((Double.parseDouble(camnot1.getText().toString()))/100);
+                    Config.getInstance().setExposicion((Double.parseDouble(camnot2.getText().toString()))/100);
+                    Config.getInstance().setPractica((Double.parseDouble(camnot3.getText().toString()))/100);
+                    Config.getInstance().setProject((Double.parseDouble(camnot4.getText().toString()))/100);
+
 
                     finish();
                 }
 
                else {
-                    Toast.makeText(getBaseContext(), "Los porcentajes ingresados deben sumar el 100%", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "ERROR: Los porcentajes ingresados deben sumar el 100%", Toast.LENGTH_SHORT).show();
                 }
            }
       });
