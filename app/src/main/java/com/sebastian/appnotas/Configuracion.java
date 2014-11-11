@@ -2,17 +2,20 @@ package com.sebastian.appnotas;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import model.Config;
 
 
 public class Configuracion extends Activity {
 
+    Principal principal = new Principal();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,53 +26,42 @@ public class Configuracion extends Activity {
         final EditText camnot3 = (EditText) findViewById(R.id.txtcamNota3);
         final EditText camnot4 = (EditText) findViewById(R.id.txtcamNota4);
 
+
         camnot1.setText(Double.toString(Config.getInstance().getQuiz()));
         camnot2.setText(Double.toString(Config.getInstance().getExposicion()));
         camnot3.setText(Double.toString(Config.getInstance().getPractica()));
         camnot4.setText(Double.toString(Config.getInstance().getProject()));
-//        Bundle bundle = getIntent().getExtras();
-//        camnot1.setText(String.valueOf(bundle.getInt("Quinces")));
-//        camnot2.setText(String.valueOf(bundle.getInt("Expo")));
-//        camnot3.setText(String.valueOf(bundle.getInt("Pract")));
-//        camnot4.setText(String.valueOf(bundle.getInt("Proye")));
+
 
         final Button guardar = (Button) findViewById(R.id.btnGuardar);
 
        guardar.setOnClickListener(new View.OnClickListener() {
             @Override
           public void onClick(View view) {
-//
-//              Intent intent1 = new Intent();
-//                intent1.putExtra("prQuiz", camnot1.getText().toString());
-//                intent1.putExtra("prExpos", camnot2.getText().toString());
-//                intent1.putExtra("prPracti", camnot3.getText().toString());
-//                intent1.putExtra("prProyect", camnot4.getText().toString());
-//                setResult(RESULT_OK, intent1);
-//                finish();
                 Config.getInstance().setQuiz((Double.parseDouble(camnot1.getText().toString())));
                 Config.getInstance().setExposicion((Double.parseDouble(camnot2.getText().toString())));
                 Config.getInstance().setPractica((Double.parseDouble(camnot3.getText().toString())));
                 Config.getInstance().setProject((Double.parseDouble(camnot4.getText().toString())));
-            finish();
 
+                if (Double.parseDouble(camnot1.getText().toString())+
+                    Double.parseDouble(camnot2.getText().toString()) +
+                    Double.parseDouble(camnot3.getText().toString())+
+                    Double.parseDouble(camnot4.getText().toString())==1){
+
+                    Toast.makeText(Configuracion.this, "Porcentaje Actual de las notas" +
+                            "\nQuiz:"+camnot1.getText()+"\nExposionones"+camnot2.getText()+"\nPractica"+
+                            camnot3.getText()+"\nProyecto"+camnot4.getText(), Toast.LENGTH_LONG).show();
+
+                    finish();
+                }
+
+               else {
+                    Toast.makeText(getBaseContext(), "Los porcentajes ingresados deben sumar el 100%", Toast.LENGTH_SHORT).show();
+                }
            }
       });
     }
 
-
-//    protected void onActivityResult (int requestCode, int resultCode, Intent Data){
-//        if (requestCode==1234 && resultCode==RESULT_OK){
-//            String quiz = Data.getExtras().getString("PrQui");
-//            String expo = Data.getExtras().getString("PrExp");
-//            String proy = Data.getExtras().getString("PrPro");
-//            String prac = Data.getExtras().getString("PrPra");
-//
-//            Toast.makeText(this, "Quis: "+quiz+ "Exposiones: "+expo+ "Proyecto: "+proy+ "Practica: " +prac, Toast.LENGTH_SHORT).show();
-//
-//
-//        }
-//
-//    }
 
 
     @Override

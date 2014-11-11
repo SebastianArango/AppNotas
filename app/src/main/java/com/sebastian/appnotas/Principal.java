@@ -9,8 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.app.AlertDialog;
+import android.widget.Toast;
 
+import model.AlertaMensaje;
 import model.Config;
 
 
@@ -27,7 +28,7 @@ public class Principal extends Activity {
 
         this.mres = (TextView) findViewById(R.id.lblresultado);
         this.not1 = (EditText) findViewById(R.id.txtNota1);
-        this.not2 = (EditText) findViewById(R.id.txtNota1);
+        this.not2 = (EditText) findViewById(R.id.txtNota2);
         this.not3 = (EditText) findViewById(R.id.txtNota3);
         this.not4 = (EditText) findViewById(R.id.txtNota4);
         final Button calc = (Button) findViewById(R.id.btnCalcular);
@@ -36,30 +37,46 @@ public class Principal extends Activity {
             @Override
             public void onClick(View view) {
 
-
-
                 nota1 = Double.parseDouble(not1.getText().toString());
                 nota2 = Double.parseDouble(not2.getText().toString());
                 nota3 = Double.parseDouble(not3.getText().toString());
                 nota4 = Double.parseDouble(not4.getText().toString());
-
-                notafinal = (nota1* Config.getInstance().getQuiz())+(nota2*Config.getInstance().getExposicion())+
-                        (nota3*Config.getInstance().getPractica())+(nota4*Config.getInstance().getProject());
-
-//
-//                Bundle bundle = getIntent().getExtras();
-//                not1.setText(String.valueOf(bundle.getInt("prQuiz")));
-//                not2.setText(String.valueOf(bundle.getInt("prExpos")));
-//                not3.setText(String.valueOf(bundle.getInt("prPracti")));
-//                not4.setText(String.valueOf(bundle.getInt("prProyect")));
-
-              //  notafinal = (nota1*not1.setText()+(nota2*0.10)+(nota3*0.40)+(nota4*0.35);
-//
-              mres.setText("Su resultado es: "+ notafinal);
+                if (nota1>=0.0 && nota1<=5.0 && nota2>=0.0 && nota2<=5.0 && nota3>=0.0 && nota3<=5.0 && nota4>=0.0 && nota4<=5.0) {
 
 
+                    notafinal = (nota1 * Config.getInstance().getQuiz()) + (nota2 * Config.getInstance().getExposicion()) +
+                            (nota3 * Config.getInstance().getPractica()) + (nota4 * Config.getInstance().getProject());
 
 
+                    mres.setText("Su resultado es: " + notafinal);
+                } else{
+                    not1.setText("");
+                    not2.setText("");
+                    not3.setText("");
+                    not4.setText("");
+                    mres.setText("");
+
+                    Toast.makeText(getBaseContext(), "Debes ingresar notas en el rango de 0.0 - 5.0", Toast.LENGTH_SHORT).show();
+
+                }
+
+
+
+
+
+            }
+        });
+
+        final Button limpiar = (Button) findViewById(R.id.btnlimpiar);
+
+        limpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                not1.setText("");
+                not2.setText("");
+                not3.setText("");
+                not4.setText("");
+                mres.setText("");
             }
         });
 
@@ -81,17 +98,21 @@ public class Principal extends Activity {
 
     if (id == R.id.ver_configuracion) {
         Intent intent = new Intent(this, Configuracion.class);
-//        intent.putExtra("Quinces", 15);
-//        intent.putExtra("Expo", 10);
-//        intent.putExtra("Pract", 40);
-//        intent.putExtra("Proye", 35);
-//        startActivityForResult(intent, 1234);
+
         startActivity(intent);
     }
-        else {
+        else if (id == R.id.ver_alertdialog){
         AlertaMensaje daveta = new AlertaMensaje();
         daveta.show(getFragmentManager(), "key");
     }
+        else {
+        not1.setText("");
+        not2.setText("");
+        not3.setText("");
+        not4.setText("");
+        mres.setText("");
+
+        }
     return  super.onOptionsItemSelected(item);
 }
 
