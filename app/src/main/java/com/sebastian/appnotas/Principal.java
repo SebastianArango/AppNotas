@@ -51,7 +51,7 @@ public class Principal extends Activity {
                     nota2 = Double.parseDouble(not2.getText().toString());
                     nota3 = Double.parseDouble(not3.getText().toString());
                     nota4 = Double.parseDouble(not4.getText().toString());
-                }
+
 
                     if (nota1 >= 0.0 && nota1 <= 5.0 && nota2 >= 0.0 && nota2 <= 5.0 && nota3 >= 0.0
                             && nota3 <= 5.0 && nota4 >= 0.0 && nota4 <= 5.0) {
@@ -61,15 +61,14 @@ public class Principal extends Activity {
                                 (nota3 * Config.getInstance().getPractica()) + (nota4 * Config.getInstance().getProject());
 
                         mres.setText("Su resultado es: " + notafinal);
-                    }
-                    else{
+                    } else {
 
                         Toast.makeText(getBaseContext(), "Debes ingresar notas en el rango de 0.0 - 5.0", Toast.LENGTH_SHORT).show();
 
                     }
 
 
-
+                }
             }
 
 
