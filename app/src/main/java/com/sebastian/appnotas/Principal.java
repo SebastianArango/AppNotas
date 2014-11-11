@@ -64,8 +64,6 @@ public class Principal extends Activity {
                     }
                     else{
 
-//                        mres.setText("");
-
                         Toast.makeText(getBaseContext(), "Debes ingresar notas en el rango de 0.0 - 5.0", Toast.LENGTH_SHORT).show();
 
                     }
